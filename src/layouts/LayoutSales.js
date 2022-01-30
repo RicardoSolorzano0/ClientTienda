@@ -6,24 +6,30 @@ import { Route, Switch } from "react-router-dom";
 //estiloss
 import "./LayoutSales.scss";
 
+
+//importacion de otros componentes
+import MenuTop from "../components/Admin/MenuTop";
+
 export default function LayoutSales(props) {
     const { routes } = props;
     const { Header, Content, Footer } = Layout;
 
     return (
         <Layout>
-            <h2>Menu Sider sales</h2>
-            <Layout>
-                <Header>
-                    HEADER.....
-                </Header>
-                <Content>
-                    <LoadRouters routes={routes} />
-                </Content>
-                <Footer>
-                    Ricars
-                </Footer>
-            </Layout>
+            {/*to do: Menu Sider     revisar si la clase contenedor la necesitaremos*/}
+            <div className="contenedor">
+                <Layout className="layout-sales">
+                    <Header className="layout-sales__header">
+                        <MenuTop />
+                    </Header>
+                    <Content className="layout-sales__content">
+                        <LoadRouters routes={routes} />
+                    </Content>
+                    <Footer className="layout-sales__footer">
+                        © 2022 Ricardo Alberto Solórzano Romero
+                    </Footer>
+                </Layout>
+            </div>
         </Layout>
     );
 }

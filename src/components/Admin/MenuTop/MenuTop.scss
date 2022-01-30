@@ -1,0 +1,31 @@
+@import "../../../scss/index.scss";
+
+.menu-top{
+    display: flex;
+
+    button{
+        color: black;
+        border: 0;
+
+        &:hover{
+            background-color: $button-color;
+            color:white;
+        }
+
+    }
+
+    &__left{
+        
+        &-logo{
+            margin-left: 15px;
+           width: 50px;
+        }
+    }
+
+    &__right{
+        padding-right: 18   px;
+        position: absolute;
+        right: 0;
+    }
+}
+
