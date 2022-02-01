@@ -1,0 +1,28 @@
+@import "../../../scss/index.scss";
+
+.ant-menu-item-selected{
+    background-color: $button-color !important;
+}
+.ant-layout-sider-collapsed{
+    left: -80px;
+}
+
+
+
+.sales-sider{
+    background-color: white; 
+    position: fixed;
+    
+    margin-top: 60px;
+    height: 100%;
+
+    ul{
+        background-color: white !important;
+        
+        a{
+            color: black !important;
+        }
+
+        
+    }
+}

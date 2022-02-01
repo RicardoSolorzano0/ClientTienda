@@ -1,31 +1,70 @@
 @import "../../../scss/index.scss";
+.ant-input-search-button{
+    border-top-right-radius: 25px !important;
+    border-bottom-right-radius: 25px !important;
+    border: 1px solid pink !important;
+}
 
 .menu-top{
-    display: flex;
+    background-color: white;
+    position: fixed;
+    top:0;
+    display: flex;  
+    justify-content: space-between;
+    width: 100%;
 
-    button{
-        color: black;
-        border: 0;
-
-        &:hover{
-            background-color: $button-color;
-            color:white;
-        }
-
+    img {
+        height: 50px;
     }
 
     &__left{
         
-        &-logo{
-            margin-left: 15px;
-           width: 50px;
+
+        button{
+            color: black;
+
+            &:hover{
+                color:white;
+                background-color: $button-color;
+                border: none;
+            }
+
+            &:active{
+                color:white;
+                background-color: $button-color;
+                border: none;
+            }
         }
+        
     }
 
     &__right{
-        padding-right: 18   px;
-        position: absolute;
-        right: 0;
+
+        button{
+            color: black;
+            margin-left: 10px;
+            margin-right: 10px;
+
+            &:hover{
+                color:white;
+                background-color: $button-color;
+                border: none;
+            }
+        }
     }
 }
 
+/*.buscador{
+    margin-left: 20px;
+    display: inline-flex;   
+    
+    input{
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        border: 1px solid #2d9fd9;
+        color: #a0d18c;
+    }
+
+    
+}*/
