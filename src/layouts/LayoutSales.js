@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Layout } from "antd";
 
 //importacion para poder enrutar
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 //estiloss
 import "./LayoutSales.scss";
 
@@ -10,11 +10,23 @@ import "./LayoutSales.scss";
 //importacion de otros componentes
 import MenuTop from "../components/Admin/MenuTop";
 import MenuSider from "../components/Admin/MenuSider";
+import SalesSignIn from "../pages/Sales/SignIn";
 
 export default function LayoutSales(props) {
     const { routes } = props;
     const [menuCollapsed, setMenuCollapsed] = useState(true);
     const { Header, Content, Footer } = Layout;
+
+    const user = null;
+
+    if (!null) {
+        return (
+            <>
+                <Route path="/sales/login" component={SalesSignIn} />
+                <Redirect to="/sales/login" />
+            </>
+        )
+    }
 
     return (
         <Layout>

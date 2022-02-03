@@ -1,0 +1,36 @@
+@import "../../scss/index.scss";
+
+.ant-tabs-nav-operations{
+    display: none !important;
+}
+
+img {
+    margin-top: 25px;
+    height: 150px;
+}
+
+.sign-in{
+    background-image: url("../../assets/img/png/fondo.PNG");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    &__content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+
+        &-tabs{
+            padding: 6px;
+            text-align: center;
+            border-radius: 10px;
+            border: 3px solid black;
+
+            span{
+                color: $button-color;
+            }
+            
+        } 
+    }
+}
