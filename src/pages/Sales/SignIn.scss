@@ -4,6 +4,11 @@
     display: none !important;
 }
 
+.ant-tabs-nav-wrap{
+    display: flex;
+    justify-content: center;
+}
+
 img {
     margin-top: 25px;
     height: 150px;
@@ -22,7 +27,7 @@ img {
         min-height: 100vh;
 
         &-tabs{
-            padding: 6px;
+            padding: 20px;
             text-align: center;
             border-radius: 10px;
             border: 3px solid black;
