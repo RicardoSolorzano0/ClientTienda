@@ -7,6 +7,7 @@ import { Form, Input, Button, notification } from "antd";
 
 //funciones y componentens
 import { singInApi } from "../../../api/user";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../../utils/constants";
 
 export default function LoginForm() {
     const [inputs, setInputs] = useState({
@@ -21,9 +22,31 @@ export default function LoginForm() {
         });
     };
 
-    const login = e => {
+    const login = async e => {
         e.preventDefault();
-        singInApi(inputs);
+        const result = await singInApi(inputs);
+
+        if (result.message) {
+            notification.open({
+                message: 'Error',
+                description:
+                    result.message,
+            });
+        } else {
+            const { accessToken, refreshToken } = result;
+            localStorage.setItem(ACCESS_TOKEN, accessToken);
+            localStorage.setItem(REFRESH_TOKEN, refreshToken);
+
+            notification.open({
+                message: 'Correcto',
+                description:
+                    'Login correcto',
+            });
+
+            window.location.href = "/sales";
+        }
+
+        console.log(result);
     };
     return (
         <div>
