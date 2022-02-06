@@ -5,6 +5,7 @@ import Logo from "../../assets/img/png/logo.png";
 
 //componentes
 import RegisterForm from "../../components/Admin/RegisterForm";
+import LoginForm from "../../components/Admin/LoginForm";
 
 //estilos
 import "./SignIn.scss";
@@ -22,7 +23,7 @@ export default function SignIn() {
                 <div className="sign-in__content-tabs">
                     <Tabs type="card">
                         <TabPane tab={<span>Entrar</span>} key="1">
-                            Componente loginForm
+                            <LoginForm />
                         </TabPane>
                         <TabPane tab={<span>Nuevo usuario</span>} key="2">
                             <RegisterForm />
