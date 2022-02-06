@@ -3,6 +3,9 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Form, Input, Button, Checkbox, notification } from "antd";
 import { emailValidation, minLengthValidation } from "../../../utils/formValidation";
 
+//funciones y componentes
+import { signUpApi } from "../../../api/user";
+
 import "./RegisterForm.scss";
 
 export default function RegisterForm() {
@@ -59,10 +62,76 @@ export default function RegisterForm() {
         }
     };
 
-    const register = e => {
+
+
+    const register = async e => {
         e.preventDefault();
-        console.log(formValid);
+
+        const emailVal = inputs.email;
+        const passwordVal = inputs.password;
+        const repeatPasswordVal = inputs.repeatPassword;
+        const privacyPolicyVal = inputs.privacyPolicy;
+
+        if (!emailVal || !passwordVal || !repeatPasswordVal || !privacyPolicyVal) {
+            notification.open({
+                message: 'Error',
+                description:
+                    'Todos los campos son obligatorios',
+            });
+        } else {
+            if (passwordVal !== repeatPasswordVal) {
+                notification.open({
+                    message: 'Error',
+                    description:
+                        'Las contraseñas deben de ser iguales',
+                });
+            } else {
+                const result = await signUpApi(inputs);
+                if (!result.ok) {
+                    notification.open({
+                        message: 'Error',
+                        description:
+                            result.message
+                    });
+                } else {
+                    notification.open({
+                        message: 'Correcto',
+                        description:
+                            result.message
+                    });
+
+
+                }
+                resetForm();
+            }
+        }
     };
+
+    const resetForm = () => {
+        const inputs = document.getElementsByTagName("input");
+
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].classList.remove("success");
+            inputs[i].classList.remove("error");
+        }
+
+        setInputs({
+            email: "",
+            password: "",
+            repeatPassword: "",
+            privacyPolicy: false
+        });
+
+        setFormValid({
+            email: false,
+            password: false,
+            repeatPassword: false,
+            privacyPolicy: false
+        });
+
+    };
+
+
 
     return (
         <Form className="register-form" onSubmitCapture={register} onChange={changeForm}>
