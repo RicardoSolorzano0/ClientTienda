@@ -19,8 +19,9 @@ export default function LayoutSales(props) {
     const { routes } = props;
     const [menuCollapsed, setMenuCollapsed] = useState(true);
     const { Header, Content, Footer } = Layout;
+    const { user, isLoading } = useAuth;
 
-    const user = null;
+
 
     /*const accessToken = getAccessToken();
     console.log("accessToken " + accessToken);
@@ -38,7 +39,7 @@ export default function LayoutSales(props) {
                 <Route path="/sales/login" component={SalesSignIn} />
                 <Redirect to="/sales/login" />
             </>
-        )
+        );
     }
 
     return (
