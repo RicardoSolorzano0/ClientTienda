@@ -11,23 +11,28 @@ import "./LayoutSales.scss";
 import MenuTop from "../components/Admin/MenuTop";
 import MenuSider from "../components/Admin/MenuSider";
 import SalesSignIn from "../pages/Sales/SignIn";
+import useAuth from "../hooks/useAuth";
 
-import { getAccessToken, getRefreshToken } from "../api/auth";
+//import { getAccessToken, getRefreshToken } from "../api/auth";
 
 export default function LayoutSales(props) {
     const { routes } = props;
     const [menuCollapsed, setMenuCollapsed] = useState(true);
     const { Header, Content, Footer } = Layout;
 
-    //const user = null;
+    const user = null;
 
-    const accessToken = getAccessToken();
+    /*const accessToken = getAccessToken();
     console.log("accessToken " + accessToken);
 
     const refreshToken = getRefreshToken();
-    console.log("refreshToken " + refreshToken);
+    console.log("refreshToken " + refreshToken);*/
 
-    if (!null) {
+    console.log(useAuth());
+
+
+
+    if (!user) {
         return (
             <>
                 <Route path="/sales/login" component={SalesSignIn} />

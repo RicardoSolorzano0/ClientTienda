@@ -4,19 +4,22 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //importamos el archivo routes para todo el tema de rutas
 import routes from "./config/routes";
+import AuthProvider from "./providers/AuthProvider";
 
 //importacion de scss
 import "./App.scss";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        {routes.map((route, index) => (
-          <RouteWithSubRoutes key={index} {...route} />
-        ))}
-      </Switch>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Switch>
+          {routes.map((route, index) => (
+            <RouteWithSubRoutes key={index} {...route} />
+          ))}
+        </Switch>
+      </Router>
+    </AuthProvider>
   );
 }
 
